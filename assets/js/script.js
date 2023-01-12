@@ -5,8 +5,38 @@ $('#currentDay').text(unix);
 // Wrap all code that interacts with the DOM in a call to jQuery to ensure that
 // the code isn't run until the browser has finished rendering all the elements
 // in the html.
-$(function () {
-    addEventListener("click", button)
+$(function (save) {
+    // addEventListener("click", .saveBtn) 
+    console.log("test")
+    $(".saveBtn").on("click", function() {
+    console.log($(this).siblings(".description").val())
+    let id = $(this).parent().attr("id")
+    let txt = $(this).siblings(".description").val()
+    localStorage.setItem(id, txt);
+    });
+
+$(".time-block").each(function() {
+    console.log($(this))
+    let id = $(this).attr("id")
+    let localText = localStorage.getItem(id)
+    $(this).children(".description").val(localText)
+ })
+ 
+
+$(".time-block").each(function(){
+    let id = $(this).attr("id").split("-")[1]
+    console.log(id)
+    //use day.js to gather current hour
+
+    //if else
+})
+
+$(this).addClass("past")
+
+$(this).addClass("present")
+
+$(this).addClass("future")
+
     // TODO: Add a listener for click events on the save button. This code should
     // use the id in the containing time-block as a key to save the user input in
     // local storage. HINT: What does `this` reference in the click listener
