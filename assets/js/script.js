@@ -25,17 +25,20 @@ $(".time-block").each(function() {
 
 $(".time-block").each(function(){
     let id = $(this).attr("id").split("-")[1]
-    console.log(id)
+    // console.log(id)
+    let time = dayjs().hour()
+    if(time < id)
+        $(this).addClass("future")
+    else if(time = id)
+        $(this).addClass("present")
+    else if(time > id)
+        $(this).addClass("past")
+
     //use day.js to gather current hour
 
     //if else
 })
 
-$(this).addClass("past")
-
-$(this).addClass("present")
-
-$(this).addClass("future")
 
     // TODO: Add a listener for click events on the save button. This code should
     // use the id in the containing time-block as a key to save the user input in
