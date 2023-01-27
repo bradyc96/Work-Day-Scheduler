@@ -29,7 +29,7 @@ $(".time-block").each(function(){
     let time = dayjs().hour()
     if(time < id)
         $(this).addClass("future")
-    else if(time = id)
+    else if(time == id)
         $(this).addClass("present")
     else if(time > id)
         $(this).addClass("past")
